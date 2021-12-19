@@ -1,6 +1,6 @@
 .todo__container {
     margin-top: 2rem;
-    padding: 2rem 2rem;
+    padding: 1.5rem 2rem;
     background-color: #fff;
     color: #333;
     border-radius: 1rem;
@@ -8,7 +8,7 @@
 }
 
 .todo__title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 400;
     margin-bottom: 2rem;
     padding-bottom: .5rem;
@@ -18,27 +18,35 @@
 
 .todo__description {
     font-size: 1.6rem;
-    margin-bottom: 2rem;
+}
+
+.todo__action {
+    display: none;
 }
 
 .btn {
+    margin-top: 2rem;
     font-size: 1.8rem;
     padding: 1rem 6.5rem;
     border: none;
     border-radius: .5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    color: #fff;
+    cursor: pointer;
 }
 
-.btn:not(:last-of-type) {
+.todo__container:hover .todo__action {
+    display: inline-block;
+}
+
+.todo__edit {
     margin-right: 4rem;
 }
 
 .btn-edit {
     background-color: #80deed;
-    color: #fff;
 }
 
 .btn-delete {
     background-color: #ff4d4d;
-    color: #fff;
 }

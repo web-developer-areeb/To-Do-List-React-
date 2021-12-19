@@ -1,0 +1,41 @@
+.form__container {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: #a2f5d9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+}
+
+.form__title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.form__title input {
+    margin-left: 2rem;
+    padding: .5rem .5rem;
+    outline: none;
+    border: 1px solid #bbb;
+    width: 50%;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.form__description {
+    font-size: 1.6rem;
+}
+
+.form__description textarea {
+    font-size: 1.6rem;
+    display: block;
+    margin-top: 1rem;
+    height: 8rem;
+    width: 97%;
+    padding: .5rem .5rem;
+    outline: none;
+    border: 1px solid #bbb;
+}
+
+.btn-submit {
+    background-color: #006063;
+}
