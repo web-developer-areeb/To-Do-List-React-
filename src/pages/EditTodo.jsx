@@ -17,7 +17,7 @@ const EditTodo = ({ todo, onEdit }) => {
         }
         setTitle(todo.title);
         setDescription(todo.description);
-    }, []);
+    }, [todo, navigate]);
 
 
 
