@@ -26,8 +26,8 @@
 
 .btn {
     margin-top: 2rem;
+    padding: 1rem 5.5rem;
     font-size: 1.8rem;
-    padding: 1rem 6.5rem;
     border: none;
     border-radius: .5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
@@ -35,18 +35,19 @@
     cursor: pointer;
 }
 
-.todo__container:hover .todo__action {
-    display: inline-block;
-}
-
 .todo__edit {
     margin-right: 4rem;
 }
 
 .btn-edit {
+    padding: 1rem 6.5rem;
     background-color: #80deed;
 }
 
 .btn-delete {
     background-color: #ff4d4d;
+}
+
+.todo__container:hover .todo__action {
+    display: inline-block;
 }
