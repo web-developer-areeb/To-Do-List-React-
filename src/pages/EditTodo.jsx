@@ -23,14 +23,16 @@ const EditTodo = ({ todo, onEdit }) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        onEdit(title, description);
-    }
-
-    const onEnter = (event) => {
-        if (event.key === 'Enter') {
-            onSubmit(event);
+        if (title.length > 0) {
+            onEdit(title, description);
         }
     }
+
+    // const onEnter = (event) => {
+    //     if (event.key === 'Enter') {
+    //         onSubmit(event);
+    //     }
+    // }
 
     return (
         <div className="form__container">
@@ -42,13 +44,18 @@ const EditTodo = ({ todo, onEdit }) => {
                         value={title}
                         onChange={e => setTitle(e.target.value)}
                     />
+                    <span
+                        className={title.length > 0 ? 'form__warn-msg-inactive' : 'form__warn-msg-active'}
+                    >
+                        Title can not be left blank
+                    </span>
                 </div>
                 <div className="form__description">
-                    <label>Enter Description:</label>
+                    <label>Enter Description <i className="italic-light">(optional)</i> :</label>
                     <textarea
                         onChange={e => setDescription(e.target.value)}
                         value={description}
-                        onKeyUp={e => onEnter(e)}
+                    // onKeyUp={e => onEnter(e)}
                     />
                 </div>
                 <button className="btn btn-submit" onClick={(e) => onSubmit(e)}>Update</button>

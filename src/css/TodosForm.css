@@ -25,6 +25,11 @@
     font-size: 1.6rem;
 }
 
+.italic-light {
+    font-size: 1.4rem;
+    color: #333;
+}
+
 .form__description textarea {
     font-size: 1.6rem;
     display: block;
@@ -38,4 +43,16 @@
 
 .btn-submit {
     background-color: #006063;
+}
+
+.form__warn-msg-active {
+    display: block;
+    margin-left: 9.8rem;
+    margin-top: .5rem;
+    width: 50%;
+    color: rgb(255, 20, 20);
+}
+
+.form__warn-msg-inactive {
+    display: none;
 }

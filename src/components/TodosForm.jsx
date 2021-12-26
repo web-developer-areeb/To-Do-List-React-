@@ -6,12 +6,15 @@ class TodosForm extends React.Component {
 
     state = {
         title: '',
-        description: ''
+        description: '',
+        check: 'inactive'
     }
 
     onSubmit = (event) => {
         event.preventDefault();
-        this.props.onFormSubmit(this.state);
+        if (this.state.title.length > 0) {
+            this.props.onFormSubmit(this.state);
+        }
     }
 
     onTitleChange = (event) => {
@@ -22,9 +25,17 @@ class TodosForm extends React.Component {
         this.setState({ description: event.target.value });
     }
 
-    onEnter = (event) => {
-        if (event.key === 'Enter') {
-            this.onSubmit(event);
+    // onEnter = (event) => {
+    //     if (event.key === 'Enter') {
+    //         this.onSubmit(event);
+    //     }
+    // }
+
+    handleBlur() {
+        if (this.state.title.length === 0) {
+            this.setState({ check: 'active' });
+        } else {
+            this.setState({ check: 'inactive' });
         }
     }
 
@@ -38,14 +49,16 @@ class TodosForm extends React.Component {
                             type="text"
                             onChange={this.onTitleChange}
                             value={this.state.title}
+                            onBlur={() => this.handleBlur()}
                         />
+                        <span className={`form__warn-msg-${this.state.check}`}>Title can not be left blank</span>
                     </div>
                     <div className="form__description">
-                        <label>Enter Description:</label>
+                        <label>Enter Description <i className="italic-light">(optional)</i> :</label>
                         <textarea
                             onChange={this.onDescriptionChange}
                             value={this.state.description}
-                            onKeyUp={this.onEnter}
+                        // onKeyUp={this.onEnter}
                         />
                     </div>
                     <button className="btn btn-submit" onClick={this.onSubmit}>Create</button>

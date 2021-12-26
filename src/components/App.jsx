@@ -15,24 +15,6 @@ const App = () => {
     const [editTodoIndex, setEditTodoIndex] = useState(-1);
     const navigate = useNavigate();
 
-    // const data = [
-    //     {
-    //         id: 1,
-    //         title: 'Test todo 1',
-    //         description: 'This is the description of first todo. Do you like it or not. It looks preety awesome.'
-    //     },
-    //     {
-    //         id: 2,
-    //         title: 'Test todo 2',
-    //         description: 'This is the description of second todo. Do you like it or not. It looks preety awesome.'
-    //     }
-    // ];
-
-    // useEffect(() => {
-    //     setTodos([...data]);
-    // }, []);
-
-
 
     const onFormSubmit = (formValues) => {
 
