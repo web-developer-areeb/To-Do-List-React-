@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import '../css/TodosList.css';
+import Modal from "./Modal";
 
 class Todos extends React.Component {
 

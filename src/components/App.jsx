@@ -58,7 +58,7 @@ const App = () => {
     return (
         <div className='container'>
             <div className="header">
-                <h1 >To Do List</h1>
+                <h1 >Todo App</h1>
             </div>
 
             <Routes >

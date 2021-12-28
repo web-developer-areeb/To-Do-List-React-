@@ -1,20 +1,28 @@
 .container {
-    max-width: 120rem;
+    padding-top: 3rem;
+    max-width: 90%;
     margin: 0 auto;
 }
 
 .header {
     /* margin-top: 2rem; */
-    /* border-radius: 5px; */
     padding: .5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #80ebed;
+    background-color: #006063;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
 }
 
 .header h1 {
     font-size: 3.6rem;
     font-weight: 400;
-    color: #fff;
+    color: #f8f8f8;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding-top: 0;
+    }
 }
