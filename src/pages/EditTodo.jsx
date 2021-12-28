@@ -6,6 +6,7 @@ const EditTodo = ({ todo, onEdit }) => {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [valid, setValid] = useState('inactive');
 
 
     const navigate = useNavigate();
@@ -20,10 +21,11 @@ const EditTodo = ({ todo, onEdit }) => {
     }, [todo, navigate]);
 
 
-
     const onSubmit = (event) => {
         event.preventDefault();
-        if (title.length > 0) {
+        if (title === null || title.match(/^ *$/) !== null) {
+            setValid('active')
+        } else {
             onEdit(title, description);
         }
     }
@@ -45,7 +47,7 @@ const EditTodo = ({ todo, onEdit }) => {
                         onChange={e => setTitle(e.target.value)}
                     />
                     <span
-                        className={title.length > 0 ? 'form__warn-msg-inactive' : 'form__warn-msg-active'}
+                        className={`form__warn-msg-${valid}`}
                     >
                         Title can not be left blank
                     </span>

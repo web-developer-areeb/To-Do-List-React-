@@ -18,7 +18,7 @@ class TodosForm extends React.Component {
     onSubmit = (event) => {
         event.preventDefault();
         if (this.state.title === null || this.state.title.match(/^ *$/) !== null) {
-            this.handleBlur();
+            this.setState({ check: 'active' });
         }
         else {
             this.props.onFormSubmit(this.state);
@@ -47,14 +47,6 @@ class TodosForm extends React.Component {
         }
     }
 
-    handleBlur() {
-        if (this.state.title.length === 0) {
-            this.setState({ check: 'active' });
-        } else {
-            this.setState({ check: 'inactive' });
-        }
-    }
-
     handleFocus = () => {
         this.setState({ check: 'inactive' });
     }
@@ -70,7 +62,6 @@ class TodosForm extends React.Component {
                                 type="text"
                                 onChange={this.onTitleChange}
                                 value={this.state.title}
-                                onBlur={() => this.handleBlur()}
                                 onFocus={this.handleFocus}
                                 onKeyPress={this.handleEnter}
                                 placeholder="Add your new todo"
