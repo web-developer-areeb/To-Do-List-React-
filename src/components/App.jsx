@@ -11,7 +11,7 @@ import EditTodo from '../pages/EditTodo';
 const App = () => {
 
     const [todos, setTodos] = useState([]);
-    const [nextId, setNextId] = useState(3);
+    const [nextId, setNextId] = useState(1);
     const [editTodoIndex, setEditTodoIndex] = useState(-1);
     const navigate = useNavigate();
 
@@ -22,7 +22,8 @@ const App = () => {
             {
                 id: nextId,
                 title: formValues.title,
-                description: formValues.description
+                description: formValues.description,
+                status: formValues.status
             }, ...todos];
         const updatedId = nextId + 1;
 
@@ -55,6 +56,15 @@ const App = () => {
         navigate("/");
     }
 
+    const handleTodoStatus = (index) => {
+        const newStatus = todos[index].status === 'todo-incomplete' ? 'todo-completed' : 'todo-incomplete';
+        let updatedTodo = todos[index];
+        updatedTodo.status = newStatus;
+        const updatedTodos = [...todos];
+        updatedTodos.splice(index, 1, updatedTodo);
+        setTodos([...updatedTodos]);
+    }
+
     return (
         <div className='container'>
             <div className="header">
@@ -67,6 +77,7 @@ const App = () => {
                     todoItems={todos}
                     onDelete={onDelete}
                     onEditClick={onEditClick}
+                    handleTodoStatus={handleTodoStatus}
                 />}
                 />
                 <Route path="/edit" exact element={<EditTodo

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import '../css/TodosList.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faEdit, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 class Todos extends React.Component {
 
@@ -9,24 +11,27 @@ class Todos extends React.Component {
         return todos.map((todo, index) => {
             return (
                 <div key={todo.id} className="todo__container" >
-                    <div className="todo__title">
-                        {todo.title}
+                    <div className="todo__item">
+                        <div className="todo__content" >
+                            <div className="todo__title">
+                                {todo.title}
+                            </div>
+                            <div className="todo__description" >
+                                {todo.description}
+                            </div>
+                        </div>
+                        <div className="todo__action">
+                            <Link to="/edit" className="icon todo__edit">
+                                <FontAwesomeIcon icon={faEdit} onClick={() => this.props.onEditClick(index)} />
+                            </Link>
+                            <Link to="/" className="icon todo__delete">
+                                <FontAwesomeIcon icon={faTrash} onClick={() => this.props.onDelete(index)} />
+                            </Link>
+                        </div>
                     </div>
-                    <div className="todo__description" >
-                        {todo.description}
-                    </div>
-                    <div className="todo__action">
-                        <Link to="/edit" className="todo__edit">
-                            <button className="btn btn-edit"
-                                onClick={() => this.props.onEditClick(index)}
-                            >Edit</button>
-                        </Link>
-                        <Link to="/">
-                            <button
-                                className="btn btn-delete"
-                                onClick={() => this.props.onDelete(index)}
-                            >Delete</button>
-                        </Link>
+                    <div className="icon todo__done" onClick={() => this.props.handleTodoStatus(index)} >
+                        <FontAwesomeIcon className={todo.status} icon={faCheck} />
+                        {todo.todoStatus}
                     </div>
                 </div >
             );

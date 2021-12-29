@@ -12,7 +12,8 @@ class TodosForm extends React.Component {
         title: '',
         description: '',
         check: 'inactive',
-        view: 'basic'
+        view: 'basic',
+        status: 'todo-incomplete'
     }
 
     onSubmit = (event) => {
@@ -52,7 +53,6 @@ class TodosForm extends React.Component {
     }
 
     basicForm() {
-        // const element = <FontAwesomeIcon icon={faCoffee} />
         return (
             <div className="form__container">
                 <form className="form">
@@ -88,7 +88,6 @@ class TodosForm extends React.Component {
                             type="text"
                             onChange={this.onTitleChange}
                             value={this.state.title}
-                            onBlur={() => this.handleBlur()}
                             onFocus={this.handleFocus}
                             onKeyPress={this.handleEnter}
                         />

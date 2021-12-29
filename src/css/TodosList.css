@@ -1,31 +1,49 @@
 .todo__container {
-    margin-top: 2rem;
+    margin: 2rem 1rem 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo__item {
     padding: 1.5rem 2rem;
     background-color: #fff;
     color: #333;
     border-radius: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    width: 95%;
+    display: flex;
+    align-items: center;
+}
+
+.todo__content {
+    flex: 1;
+}
+
+.todo__action {
+    align-self: flex-start;
 }
 
 .todo__title {
     font-size: 2.2rem;
     font-weight: 400;
-    margin-bottom: 2rem;
     padding-bottom: .5rem;
-    border-bottom: 1px solid #ccc;
     display: inline-block;
 }
 
 .todo__description {
     font-size: 1.6rem;
-}
-
-.todo__action {
+    margin-top: 2rem;
+    display: block;
     display: none;
 }
 
+.todo__content:hover .todo__description {
+    display: block;
+}
+
+
 .btn {
-    margin-top: 2rem;
     padding: 1rem 5.5rem;
     font-size: 1.8rem;
     border: none;
@@ -35,19 +53,38 @@
     cursor: pointer;
 }
 
+.icon {
+    font-size: 2rem;
+    text-align: center;
+}
+
 .todo__edit {
-    margin-right: 4rem;
+    margin-right: 3rem;
+    color: #006063;
 }
 
-.btn-edit {
-    padding: 1rem 6.5rem;
-    background-color: #80deed;
+.todo__delete {
+    color: crimson;
 }
 
-.btn-delete {
-    background-color: #ff4d4d;
+.todo__done {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    background-color: #00e64d;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* color: #555; */
 }
 
-.todo__container:hover .todo__action {
-    display: inline-block;
+.todo-completed {
+    color: #f8f8f8;
+}
+
+.todo-incomplete {
+    color: #555;
 }
