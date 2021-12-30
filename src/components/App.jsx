@@ -66,30 +66,33 @@ const App = () => {
     }
 
     return (
-        <div className='container'>
-            <div className="header">
-                <h1 >Todo App</h1>
+        <div className="app">
+
+            <div className='container'>
+                <div className="header">
+                    <h1 >Todo App</h1>
+                </div>
+
+                <Routes >
+                    <Route path="/" exact element={<Home
+                        onFormSubmit={onFormSubmit}
+                        todoItems={todos}
+                        onDelete={onDelete}
+                        onEditClick={onEditClick}
+                        handleTodoStatus={handleTodoStatus}
+                    />}
+                    />
+                    <Route path="/edit" exact element={<EditTodo
+                        todo={todo}
+                        onEdit={onEdit}
+                    />}
+                    />
+                </Routes>
+
             </div>
-
-            <Routes >
-                <Route path="/" exact element={<Home
-                    onFormSubmit={onFormSubmit}
-                    todoItems={todos}
-                    onDelete={onDelete}
-                    onEditClick={onEditClick}
-                    handleTodoStatus={handleTodoStatus}
-                />}
-                />
-                <Route path="/edit" exact element={<EditTodo
-                    todo={todo}
-                    onEdit={onEdit}
-                />}
-                />
-            </Routes>
-
-            <div className="footer">
+            <footer className="footer">
                 <p>&copy; 2021 by Areeb Ahmad. All rights reserved.</p>
-            </div>
+            </footer>
         </div>
 
     );
