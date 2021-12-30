@@ -1,3 +1,7 @@
+.app {
+    max-width: 100%;
+}
+
 .container {
     padding-top: 3rem;
     max-width: 90%;
@@ -5,7 +9,6 @@
 }
 
 .header {
-    /* margin-top: 2rem; */
     padding: .5rem;
     display: flex;
     justify-content: center;
@@ -19,6 +22,15 @@
     font-size: 3.6rem;
     font-weight: 400;
     color: #f8f8f8;
+}
+
+.footer {
+    font-size: 1.4rem;
+    background-color: #111;
+    color: #f8f8f8;
+    letter-spacing: 1.2px;
+    padding: 3rem 0;
+    text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
