@@ -29,8 +29,11 @@ class Todos extends React.Component {
                             </Link>
                         </div>
                     </div>
-                    <div className="icon todo__done" onClick={() => this.props.handleTodoStatus(index)} >
-                        <FontAwesomeIcon className={todo.status} icon={faCheck} />
+                    <div
+                        className={`icon todo__status ${todo.status}`}
+                        onClick={() => this.props.handleTodoStatus(index)}
+                    >
+                        <FontAwesomeIcon className="check" icon={faCheck} />
                         {todo.todoStatus}
                     </div>
                 </div >

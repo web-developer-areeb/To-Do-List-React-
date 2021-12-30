@@ -5,6 +5,10 @@
     justify-content: space-between;
 }
 
+.todo__container:last-of-type {
+    margin-bottom: 15rem;
+}
+
 .todo__item {
     padding: 1.5rem 2rem;
     background-color: #fff;
@@ -67,24 +71,28 @@
     color: crimson;
 }
 
-.todo__done {
+.todo__status {
     font-size: 1.5rem;
     margin-left: 1rem;
-    background-color: #00e64d;
     height: 3.5rem;
     width: 3.5rem;
     border-radius: 50%;
+    background-color: #999;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    /* color: #555; */
-}
-
-.todo-completed {
-    color: #f8f8f8;
 }
 
 .todo-incomplete {
-    color: #555;
+    background-color: #999;
+    color: #777;
+}
+
+.todo-completed {
+    background-color: #00e64d;
+}
+
+.todo-completed .check {
+    color: #f8f8f8;
 }
