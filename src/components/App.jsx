@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, Route, Routes } from 'react-router-dom';
 
 import '../css/App.css';
@@ -8,9 +8,18 @@ import EditTodo from '../pages/EditTodo';
 
 ///////////////////////// FUNCTION BASED APPROACH ///////////////
 
+const getLocalData = () => {
+    const data = localStorage.getItem('todos');
+    if (data) {
+        return JSON.parse(data);
+    } else {
+        return [];
+    }
+}
+
 const App = () => {
 
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState(getLocalData());
     const [nextId, setNextId] = useState(1);
     const [editTodoIndex, setEditTodoIndex] = useState(-1);
     const navigate = useNavigate();
@@ -64,6 +73,10 @@ const App = () => {
         updatedTodos.splice(index, 1, updatedTodo);
         setTodos([...updatedTodos]);
     }
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos])
 
     return (
         <div className="app">
