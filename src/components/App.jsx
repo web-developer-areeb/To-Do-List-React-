@@ -67,7 +67,6 @@ const App = () => {
 
     return (
         <div className="app">
-
             <div className='container'>
                 <div className="header">
                     <h1 >Todo App</h1>
