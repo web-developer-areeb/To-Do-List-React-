@@ -40,7 +40,7 @@ const EditTodo = ({ todo, onEdit }) => {
         <div className="form__container">
             <form>
                 <div className="form__title">
-                    <label>Enter Title:</label>
+                    <label className="form__title-label">Enter Title:</label>
                     <input
                         type="text"
                         value={title}

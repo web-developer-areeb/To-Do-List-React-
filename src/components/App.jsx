@@ -11,16 +11,22 @@ import EditTodo from '../pages/EditTodo';
 const getLocalData = () => {
     const data = localStorage.getItem('todos');
     if (data) {
-        return JSON.parse(data);
+        return {
+            todos: JSON.parse(data),
+            nextId: JSON.parse(localStorage.getItem('nextId'))
+        }
     } else {
-        return [];
+        return {
+            todos: [],
+            nextId: 1
+        }
     }
 }
 
 const App = () => {
 
-    const [todos, setTodos] = useState(getLocalData());
-    const [nextId, setNextId] = useState(1);
+    const [todos, setTodos] = useState(getLocalData().todos);
+    const [nextId, setNextId] = useState(getLocalData().nextId);
     const [editTodoIndex, setEditTodoIndex] = useState(-1);
     const navigate = useNavigate();
 
@@ -51,7 +57,8 @@ const App = () => {
         setEditTodoIndex(index)
     }
 
-    const todo = todos[editTodoIndex];
+    // No longer required as Route EditTodo is directly sending editable todo from array
+    // const todo = todos[editTodoIndex];
 
     const onEdit = (title, description) => {
         const index = editTodoIndex;
@@ -76,7 +83,8 @@ const App = () => {
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos));
-    }, [todos])
+        localStorage.setItem('nextId', JSON.stringify(nextId));
+    }, [todos, nextId])
 
     return (
         <div className="app">
@@ -95,7 +103,7 @@ const App = () => {
                     />}
                     />
                     <Route path="/edit" exact element={<EditTodo
-                        todo={todo}
+                        todo={todos[editTodoIndex]}
                         onEdit={onEdit}
                     />}
                     />
